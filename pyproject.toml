@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "baseball-screiping"
+name = "baseball_game_result_notifiy"
 version = "0.1.0"
 description = ""
 authors = ["Haru Nishiura"]
