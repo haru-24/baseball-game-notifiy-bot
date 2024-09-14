@@ -1,0 +1,4 @@
+requests ==2.31.0
+bs4 ==0.0.2
+line-bot-sdk ==3.11.0
+python-dotenv ==1.0.1
