@@ -12,8 +12,6 @@ LINE_USER_ID = os.getenv("LINE_USER_ID")
 configuration = Configuration(access_token=CHANNEL_ACCESS_TOKEN)
 
 if "__main__" == __name__:
-    line_notify_token = "g2zlgq1WSZPVzUsyoha1GPWNXnh9hYiPQcW57LSuZil"
-    line_notify_api = "https://notify-api.line.me/api/notify"
     url = "https://baseball.yahoo.co.jp/npb/schedule/"
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
@@ -41,7 +39,7 @@ if "__main__" == __name__:
     message_dict = {
         "to": LINE_USER_ID,
         "messages": [
-            {"type": "text", "text": "今日の結果がでたガウ!🐶"},
+            {"type": "text", "text": "今日の結果です"},
             {"type": "text", "text": output_text},
         ],
     }

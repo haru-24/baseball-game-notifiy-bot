@@ -1,0 +1,26 @@
+name: notify
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  CHANNEL_ACCESS_TOKEN: ${{secrets.CHANNEL_ACCESS_TOKEN}}
+  LINE_USER_ID: ${{secrets.LINE_USER_ID}}
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+          architecture: "x64"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run Python
+        run: python baseball_game_results_notify/main.py
