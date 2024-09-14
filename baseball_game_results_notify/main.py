@@ -11,7 +11,8 @@ CHANNEL_ACCESS_TOKEN = os.getenv("CHANNEL_ACCESS_TOKEN")
 LINE_USER_ID = os.getenv("LINE_USER_ID")
 configuration = Configuration(access_token=CHANNEL_ACCESS_TOKEN)
 
-if "__main__" == __name__:
+
+def main():
     url = "https://baseball.yahoo.co.jp/npb/schedule/"
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
@@ -49,6 +50,10 @@ if "__main__" == __name__:
         push_message_request = PushMessageRequest.from_dict(message_dict)
         try:
             res = api_instance.push_message(push_message_request)
-            print("Successful sending")
+            print(f"Successful sending: {res}")
         except Exception as e:
             print(f"Exception : {e}")
+
+
+if "__main__" == __name__:
+    main()
